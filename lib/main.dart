@@ -35,6 +35,12 @@ class _CounterWidgetState extends State<CounterWidget> {
     _controller.dispose();
     super.dispose();
   }
+  //get color based on value
+  Color get counterColor {
+    if (_counter == 0) return Colors.red;
+    if (_counter > 50) return Colors.green;
+    return Colors.black;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,10 @@ class _CounterWidgetState extends State<CounterWidget> {
               child: Text(
                 //displays the current number
                 '$_counter',
-                style: TextStyle(fontSize: 50.0),
+                style: TextStyle(
+                  fontSize: 50.0,
+                  color: counterColor, //dynamic color
+                  ),
               ),
             ),
           ),
